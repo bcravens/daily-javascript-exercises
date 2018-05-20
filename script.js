@@ -23,6 +23,7 @@ function reverse2(str) {
 }
 // console.log(reverse3(str))
 
+// ------------------------------------------------------- //
 //Factorize a number
 // var num = 5;
 function factor(num) {
@@ -46,6 +47,7 @@ function factor1(num) {
 // (5 * (5 - 1) * (4 - 1) * (3 - 1) * (2 - 1)) = 5 * 4 * 3 * 2 * 1 = 120
 // console.log(factor1(num));
 
+// ------------------------------------------------------- //
 //Promises
 function successfulPromise() {
     return new Promise((res, rej) => {
@@ -80,6 +82,7 @@ function prom(somePromise, times) {
 //     console.log(`Outer error: ${error.message}`)
 // })
 
+// ------------------------------------------------------- //
 //Palindromes
 // var word = "Race Car123";
 function palindrome(str) {
@@ -93,28 +96,29 @@ function palindrome(str) {
     let reverse = result.split("").reverse().join("").toLowerCase();
     return result.toLowerCase() === reverse;
 }
+
+function palindrome1(str) {
+    let word = str.trim().split("").map((letter) => {
+        return letter.trim().replace(/[0-9]/, '');
+    }).join("");
+    return word.toLowerCase() === word.split("").reverse().join("").toLowerCase();
+}
 // console.log(palindrome(word));
 
+// ------------------------------------------------------- //
 //Find longest word in a string
 // var sentence = "This is a really cool sentence";
+
 function longestWord(str) {
-    let words = str.trim().split(" ");
-    let longest;
-    words.forEach((word, index) => {
-        if (index == 0) {
-            longest = word
-        } else {
-            if (word.length > longest.length) {
-                longest = word;
-            }
-        }
+    return str.trim().split(" ").reduce((pre, current) => {
+        return current.length > pre.length ? current : pre;
     })
-    return longest;
 }
 // console.log(longestWord(sentence));
 
+// ------------------------------------------------------- //
 //Title case a sentence 
-var sentence = "this shold be title cased";
+// var sentence = "this should be title cased";
 
 function titleCase(str) {
     let wordArray = str.split(" ");
@@ -128,14 +132,15 @@ function titleCase(str) {
 // console.log(titleCase(sentence))
 
 function titleCase1(str) {
-    return str.toLowerCase().split(' ').map(function (word) {
+    return str.toLowerCase().split(' ').map((word) => {
         return word.replace(word[0], word[0].toUpperCase());
     }).join(' ');
 }
 // console.log(titleCase1(sentence));
 
+// ------------------------------------------------------- //
 //Return largest number from each array
-var arrayOfNums = [ [5, 2, 3, 4], [1, 2, 8, 4], [1, 20, 3, 4] ];
+// var arrayOfNums = [ [5, 2, 3, 4], [1, 2, 8, 4], [1, 20, 3, 4] ];
 
 function largestNumberInArray(daddyArray) {
     return daddyArray.map((array) => {
