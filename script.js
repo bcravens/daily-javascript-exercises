@@ -132,4 +132,18 @@ function titleCase1(str) {
         return word.replace(word[0], word[0].toUpperCase());
     }).join(' ');
 }
-console.log(titleCase1(sentence));
+// console.log(titleCase1(sentence));
+
+//Return largest number from each array
+var arrayOfNums = [ [5, 2, 3, 4], [1, 2, 8, 4], [1, 20, 3, 4] ];
+
+function largestNumberInArray(daddyArray) {
+    return daddyArray.map((array) => {
+        return array.reduce((pre, current) => {
+            return current > pre? current : pre;
+        })
+    })
+}
+// console.log(largestNumberInArray(arrayOfNums));
+
+
