@@ -79,7 +79,7 @@ function prom(somePromise, times) {
 // })
 
 //Palindromes
-var word = "Race Car123";
+// var word = "Race Car123";
 function palindrome(str) {
     let wordArray = str.trim().split("");
     let result = "";
@@ -91,7 +91,24 @@ function palindrome(str) {
     let reverse = result.split("").reverse().join("").toLowerCase();
     return result.toLowerCase() === reverse;
 }
-console.log(palindrome(word));
+// console.log(palindrome(word));
 
+//Find longest word in a string
+var word = "This is a really cool sentence";
+function longestWord(str) {
+    let words = str.trim().split(" ");
+    let longest;
+    words.forEach((word, index) => {
+        if (index == 0) {
+            longest = word
+        } else {
+            if (word.length > longest.length) {
+                longest = word;
+            }
+        }
+    })
+    return longest;
+}
+console.log(longestWord(word));
 
 
