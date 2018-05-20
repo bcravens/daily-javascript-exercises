@@ -21,14 +21,13 @@ function reverse2(str) {
     if (str === "") {
         return "";
     } else {
-        // console.log(str.substr(1) + str.charAt(0))
         return reverse3(str.substr(1)) + str.charAt(0);
     }
 }   
 // console.log(reverse3(str))
 
 //Factorize a number
-var num = 5;
+// var num = 5;
 function factor(num) {
     let n = 1;
     for (var i = 2; i <= num; i ++) {
@@ -49,3 +48,39 @@ function factor1(num) {
 }
 // (5 * (5 - 1) * (4 - 1) * (3 - 1) * (2 - 1)) = 5 * 4 * 3 * 2 * 1 = 120
 // console.log(factor1(num));
+
+//Promises
+function successfulPromise() {
+    return new Promise((res, rej) => {
+        res("success!");
+    }) 
+}
+
+function failedPromise() {
+    return new Promise((res, rej) => {
+        rej(new Error("error!"));
+    }) 
+}
+
+function prom(somePromise, times) {
+    return somePromise().then((val) => {
+        return val; 
+    }).catch((error) => {
+        if (times > 0) {
+            console.log(`there was an error: ${error} trying ${times - 1} more times`);
+            return prom(somePromise, times - 1);
+        } else {
+            return new Promise((res, rej) => { rej(error) });
+        }
+    })
+}
+
+prom(failedPromise, 5).then((val) => {
+    console.log(val)
+}).catch((error) => {
+    console.log(`Outer error: ${error.message}`)
+})
+
+
+
+
