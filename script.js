@@ -14,20 +14,20 @@ function reverse1(str) {
 }
 // console.log(reverse2(str))
 
-function reverse2(str) {    
+function reverse2(str) {
     if (str === "") {
         return "";
     } else {
         return reverse3(str.substr(1)) + str.charAt(0);
     }
-}   
+}
 // console.log(reverse3(str))
 
 //Factorize a number
 // var num = 5;
 function factor(num) {
     let n = 1;
-    for (var i = 2; i <= num; i ++) {
+    for (var i = 2; i <= num; i++) {
         n *= i;
     }
     return n;
@@ -40,7 +40,7 @@ function factor1(num) {
     } else if (num == 0) {
         return 1;
     } else {
-        return (num * factor1(num -1));
+        return (num * factor1(num - 1));
     }
 }
 // (5 * (5 - 1) * (4 - 1) * (3 - 1) * (2 - 1)) = 5 * 4 * 3 * 2 * 1 = 120
@@ -50,24 +50,26 @@ function factor1(num) {
 function successfulPromise() {
     return new Promise((res, rej) => {
         res("success!");
-    }) 
+    })
 }
 
 function failedPromise() {
     return new Promise((res, rej) => {
         rej(new Error("error!"));
-    }) 
+    })
 }
 
 function prom(somePromise, times) {
     return somePromise().then((val) => {
-        return val; 
+        return val;
     }).catch((error) => {
         if (times > 0) {
             console.log(`there was an error: ${error} trying ${times - 1} more times`);
             return prom(somePromise, times - 1);
         } else {
-            return new Promise((res, rej) => { rej(error) });
+            return new Promise((res, rej) => {
+                rej(error)
+            });
         }
     })
 }
@@ -94,7 +96,7 @@ function palindrome(str) {
 // console.log(palindrome(word));
 
 //Find longest word in a string
-var word = "This is a really cool sentence";
+// var sentence = "This is a really cool sentence";
 function longestWord(str) {
     let words = str.trim().split(" ");
     let longest;
@@ -109,6 +111,25 @@ function longestWord(str) {
     })
     return longest;
 }
-console.log(longestWord(word));
+// console.log(longestWord(sentence));
 
+//Title case a sentence 
+var sentence = "this shold be title cased";
 
+function titleCase(str) {
+    let wordArray = str.split(" ");
+    let result = "";
+    wordArray.forEach((word) => {
+        word = word.charAt(0).toUpperCase() + word.substr(1);
+        result ? result += word + " " : result = word + " ";
+    })
+    return result;
+}
+// console.log(titleCase(sentence))
+
+function titleCase1(str) {
+    return str.toLowerCase().split(' ').map(function (word) {
+        return word.replace(word[0], word[0].toUpperCase());
+    }).join(' ');
+}
+console.log(titleCase1(sentence));
