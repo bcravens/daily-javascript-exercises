@@ -1,12 +1,10 @@
 //Reverse a string
 // var str = "bradley"
-//1
 function reverse(str) {
     return str.split("").reverse().join("");
 }
 // console.log(reverse(str))
 
-//2
 function reverse1(str) {
     let s = "";
     for (var i = str.length - 1; i >= 0; i--) {
@@ -16,7 +14,6 @@ function reverse1(str) {
 }
 // console.log(reverse2(str))
 
-//3
 function reverse2(str) {    
     if (str === "") {
         return "";
@@ -75,12 +72,26 @@ function prom(somePromise, times) {
     })
 }
 
-prom(failedPromise, 5).then((val) => {
-    console.log(val)
-}).catch((error) => {
-    console.log(`Outer error: ${error.message}`)
-})
+// prom(failedPromise, 5).then((val) => {
+//     console.log(val)
+// }).catch((error) => {
+//     console.log(`Outer error: ${error.message}`)
+// })
 
+//Palindromes
+var word = "Race Car123";
+function palindrome(str) {
+    let wordArray = str.trim().split("");
+    let result = "";
+    wordArray.forEach((letter) => {
+        letter = letter.trim();
+        letter = letter.replace(/[0-9]/, '');
+        if (letter) result += letter;
+    })
+    let reverse = result.split("").reverse().join("").toLowerCase();
+    return result.toLowerCase() === reverse;
+}
+console.log(palindrome(word));
 
 
 
