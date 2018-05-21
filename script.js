@@ -18,7 +18,7 @@ function reverse2(str) {
     if (str === "") {
         return "";
     } else {
-        return reverse3(str.substr(1)) + str.charAt(0);
+        return reverse2(str.substr(1)) + str.charAt(0);
     }
 }
 // console.log(reverse3(str))
@@ -151,4 +151,20 @@ function largestNumberInArray(daddyArray) {
 }
 // console.log(largestNumberInArray(arrayOfNums));
 
+// ------------------------------------------------------- //
+//Confirm the ending of a string
+var sentence = "never gonna give you up never gonna let you down"
+function confirmEnding(str, target) {
+    let index = str.indexOf(target);
+    if (index > -1) {
+        let sub = str.substr(index);
+        return sub === target
+    }
+    return false;
+}
+// console.log(confirmEnding(sentence, "gonna let"));
 
+function confirmEnding1(string, target) {
+    return string.substr(-target.length) === target ? true : false;
+}
+console.log(confirmEnding1(sentence, "you down"));
