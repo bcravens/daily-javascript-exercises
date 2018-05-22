@@ -145,7 +145,7 @@ function titleCase1(str) {
 function largestNumberInArray(daddyArray) {
     return daddyArray.map((array) => {
         return array.reduce((pre, current) => {
-            return current > pre? current : pre;
+            return current > pre ? current : pre;
         })
     })
 }
@@ -153,7 +153,7 @@ function largestNumberInArray(daddyArray) {
 
 // ------------------------------------------------------- //
 //Confirm the ending of a string
-var sentence = "never gonna give you up never gonna let you down"
+// var sentence = "never gonna give you up never gonna let you down";
 function confirmEnding(str, target) {
     let index = str.indexOf(target);
     if (index > -1) {
@@ -167,4 +167,29 @@ function confirmEnding(str, target) {
 function confirmEnding1(string, target) {
     return string.substr(-target.length) === target ? true : false;
 }
-console.log(confirmEnding1(sentence, "you down"));
+// console.log(confirmEnding1(sentence, "you down"));
+
+// ------------------------------------------------------- //
+//Truncate a string
+var sentence = "this string should be truncated";
+
+function truncate(str, num) {
+    let s = str.substr(0, num);
+    if (s.length < str.length) {
+        if (s.length <= 3) {
+            return s + "...";
+        } else {
+            return s.substr(0, s.length - 3) + "...";
+        }
+    }
+    return s;
+}
+// console.log(truncate(sentence, 14));
+
+function truncate1(str, num) {
+    if (str.length > num) {
+        return str.slice(0, num > 3 ? num - 3 : num) + '...';
+    }
+    return str;
+}
+console.log(truncate1(sentence, 14));
