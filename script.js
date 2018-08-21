@@ -193,3 +193,43 @@ function truncate1(str, num) {
     return str;
 }
 console.log(truncate1(sentence, 14));
+
+//angular stuff i might need later but figured out a better way 
+
+    // @HostListener('paste', ['$event']) blockPaste(e: ClipboardEvent) {
+    //     let currentValue = '';
+    //     let result = '';
+    //     let input = e.clipboardData.getData('Text');
+    //     if (input) {
+    //         input.split("").forEach(char => {
+    //             if (this.exp.test(char)) result += char;
+    //         })
+    //     }
+    //     if (this.control) {
+    //         currentValue = this.control.value;
+    //         if (currentValue) result = currentValue += result;
+    //         this.control.setValue(result);
+    //     } else if (this.input) {
+    //         currentValue = this.input.value;
+    //         if (currentValue) result = currentValue += result;
+    //         this.input.value = result;
+    //     }
+    //     e.preventDefault();
+    // }
+    
+    // @HostListener('input', ['$event']) onInput(e: any) { //InputEvent
+    //     console.log('input');
+    //     console.log(e)
+    //     // if (e.inputType == 'deleteContentBackward') {
+    //     //     if (this.control) {
+    //     //         let value = this.control.value;
+    //     //         if (value && value.length == 0) {
+    //     //             this.control.setValue('')
+    //     //         }
+    //     //     } else {
+
+    //     //     }
+    //     //     // this.control ? this.control.setValue('') : this.input.value = '';
+    //     //     e.preventDefault();
+    //     // }
+    // }
